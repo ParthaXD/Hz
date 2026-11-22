@@ -126,3 +126,42 @@ footer { flex-wrap: wrap; margin-top: 3rem; padding: 1.4rem 0; border-top: 2px s
 .journal-photo img { aspect-ratio: 3 / 4; object-fit: contain; background: #19171b; }
 .journal-photo figcaption { border-bottom: 1px solid var(--rule); }
 .journal-photo > p { margin-top: .45rem; font-size: 1rem; }
+
+/* Printed sky plates occupy only the two outer margins of the homepage. */
+@media screen and (min-width: 68rem) {
+  .home::before, .home::after {
+    content: "";
+    position: fixed;
+    inset-block: 0;
+    width: max(5vw, calc((100% - 1330px) / 2 + clamp(1.2rem, 6vw, 6rem) - 1rem));
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center 42%;
+    z-index: -1;
+  }
+  .home { isolation: isolate; }
+  .home::before {
+    left: 0;
+    background-image: url("assets/margin-spiral.webp");
+    mask-image: linear-gradient(to right, black 78%, transparent);
+  }
+  .home::after {
+    right: 0;
+    background-image: url("assets/margin-sky.webp");
+    mask-image: linear-gradient(to left, black 78%, transparent);
+  }
+}
+@supports (animation-timeline: scroll()) {
+  @media screen and (min-width: 68rem) and (prefers-reduced-motion: no-preference) {
+    .home::before, .home::after {
+      animation: chart-drift linear both;
+      animation-timeline: scroll(root);
+    }
+    .home::after { animation-direction: reverse; }
+    @keyframes chart-drift {
+      from { background-position-y: calc(42% - 32px); }
+      to { background-position-y: calc(42% + 32px); }
+    }
+  }
+}
