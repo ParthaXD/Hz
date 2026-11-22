@@ -4,11 +4,11 @@
 
 ## Add a photograph
 
-On the **gh-pages** branch, upload the image into **photos/**. Open **photography.html** and copy the figure inside the PHOTO TEMPLATE comment. Replace one of the five placeholder figures inside the gallery with it. Replace the filename in both places, write a description for the image, and add your caption. Commit the change to publish it.
+On the **gh-pages** branch, upload the image into **photos/**. Open **photography.html** and copy the figure inside the PHOTO TEMPLATE comment. Paste it inside the gallery, or replace an existing figure. Replace the filename in both places, write a description for the image, and add your caption. Commit the change to publish it.
 
 ## Add a past event
 
-On **gh-pages**, open **events.html**. Replace one of the five placeholder articles in the entries section with a copy of the EVENT TEMPLATE article. Fill in the date, venue, event name and your role. Put the newest entry first.
+On **gh-pages**, open **events.html**. Copy the EVENT TEMPLATE article into the entries section. Fill in the date, venue, event name and your role. Put the newest entry first.
 
 ## Other edits
 

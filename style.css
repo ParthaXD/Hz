@@ -123,3 +123,6 @@ footer { flex-wrap: wrap; margin-top: 3rem; padding: 1.4rem 0; border-top: 2px s
     to { background-position-x: 320px; }
   }
 }
+.journal-photo img { aspect-ratio: 3 / 4; object-fit: contain; background: #19171b; }
+.journal-photo figcaption { border-bottom: 1px solid var(--rule); }
+.journal-photo > p { margin-top: .45rem; font-size: 1rem; }
