@@ -74,3 +74,19 @@ footer { flex-wrap: wrap; margin-top: 3rem; padding: 1.4rem 0; border-top: 2px s
   main { animation: none; }
   .cv h2 { break-after: avoid; font-size: 18pt; }
 }
+
+.name, .signature, .byline {
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.name { font-size: clamp(2.9rem, 6vw, 5.8rem); line-height: .94; }
+.print { display: block; }
+.plate { transform: none; }
+.photo-slot { border: 1px solid var(--rule); padding: .45rem; }
+.blank-print {
+  aspect-ratio: 4 / 3;
+  background: repeating-linear-gradient(135deg, #eeede6 0 8px, #e4e3db 8px 9px);
+}
+.event-slot h2 { font-size: 1.5rem; color: var(--muted); }
