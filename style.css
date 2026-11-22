@@ -90,3 +90,36 @@ footer { flex-wrap: wrap; margin-top: 3rem; padding: 1.4rem 0; border-top: 2px s
   background: repeating-linear-gradient(135deg, #eeede6 0 8px, #e4e3db 8px 9px);
 }
 .event-slot h2 { font-size: 1.5rem; color: var(--muted); }
+
+.home .name span { display: block; color: #3f3264; }
+.home .name span:nth-child(2) { color: #963d61; }
+.home .name span:last-child { color: #a34316; }
+.plate video { display: block; width: 100%; height: auto; background: #090812; }
+.home .cover {
+  position: relative;
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+.home .cover::before, .home .cover::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  height: 2.8rem;
+  left: 0;
+  right: 0;
+  background: url('assets/contours.svg') center / 320px 94px repeat-x;
+  opacity: .4;
+  mask-image: linear-gradient(to right, transparent, black 17%, black 83%, transparent);
+}
+.home .cover::before { top: -.35rem; }
+.home .cover::after { bottom: -.35rem; }
+@media (max-width: 720px) {
+  .home .cover::before, .home .cover::after { height: 1.6rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home .cover::before { animation: field-scroll 26s linear 2; }
+  .home .cover::after { animation: field-scroll 32s linear 2 reverse; }
+  @keyframes field-scroll {
+    from { background-position-x: 0; }
+    to { background-position-x: 320px; }
+  }
+}

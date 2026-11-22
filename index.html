@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f6f0">
   <title>About · Partha Sarathi Mohanta</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
 <header>
   <a class="signature" href="index.html">Partha S. Mohanta</a>
@@ -16,12 +16,23 @@
 <main id="main">
 <div class="cover">
   <div class="lede"><p class="dateline">Rourkela, Odisha</p>
-    <h1 class="name">Partha<br>Sarathi<br>Mohanta</h1>
+    <h1 class="name"><span>Partha</span> <span>Sarathi</span> <span>Mohanta</span></h1>
     <p>I study physics at NISER. Last summer I spent a lot of time with a question about galaxies: how do their magnetic fields grow and persist?</p>
     <p>Outside the lab, I take photographs, play badminton and draw.</p>
   </div>
-  <figure class="plate"><a class="print" href="assets/galactic-dynamo.webp" aria-label="Open full-size dynamo plot"><img src="assets/galactic-dynamo.webp" width="1040" height="906" alt="Face-on magnetic field at 10.69 Gyr, with arrows tracing the field and colour indicating its strength."></a>
-    <figcaption>Galactic mean-field dynamo <span>10.69 Gyr</span></figcaption></figure>
+  <figure class="plate">
+    <video id="dynamo" width="960" height="840" poster="assets/galactic-dynamo.webp" controls muted loop playsinline preload="metadata" aria-label="Face-on galactic mean-field dynamo simulation, Model B, m equals one">
+      <source src="assets/dynamo-loop.mp4" type="video/mp4">
+      <a href="assets/dynamo-loop.mp4">Watch the dynamo simulation</a>
+    </video>
+    <figcaption>Model B · m = 1 <span>20.1× speed · 10 s loop</span></figcaption>
+  </figure>
+  <script>
+    const video = document.getElementById('dynamo');
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    if (!motion.matches) video.play().catch(() => {});
+    motion.addEventListener('change', () => { if (motion.matches) video.pause(); });
+  </script>
 </div>
 <section class="line" id="research"><p class="dateline">Research</p><div>
   <h2><a href="projects.html">Galactic magnetic fields</a></h2><p>At NISER I wrote a Python model to follow a field through a rotating galactic disc. My project notes and code are on the <a href="projects.html">projects page</a>.</p>
