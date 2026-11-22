@@ -117,8 +117,8 @@ footer { flex-wrap: wrap; margin-top: 3rem; padding: 1.4rem 0; border-top: 2px s
   .home .cover::before, .home .cover::after { height: 1.6rem; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  .home .cover::before { animation: field-scroll 26s linear 2; }
-  .home .cover::after { animation: field-scroll 32s linear 2 reverse; }
+  .home .cover::before { animation: field-scroll 26s linear infinite; }
+  .home .cover::after { animation: field-scroll 32s linear infinite reverse; }
   @keyframes field-scroll {
     from { background-position-x: 0; }
     to { background-position-x: 320px; }
@@ -144,7 +144,7 @@ footer { flex-wrap: wrap; margin-top: 3rem; padding: 1.4rem 0; border-top: 2px s
   .home { isolation: isolate; }
   .home::before {
     left: 0;
-    background-image: url("assets/margin-spiral.webp");
+    background-image: url("assets/orbital-study.svg");
     mask-image: linear-gradient(to right, black 78%, transparent);
   }
   .home::after {
@@ -153,17 +153,12 @@ footer { flex-wrap: wrap; margin-top: 3rem; padding: 1.4rem 0; border-top: 2px s
     mask-image: linear-gradient(to left, black 78%, transparent);
   }
 }
-@supports (animation-timeline: scroll()) {
-  @media screen and (min-width: 68rem) and (prefers-reduced-motion: no-preference) {
-    .home::before, .home::after {
-      animation: chart-drift linear both;
-      animation-timeline: scroll(root);
-    }
-    .home::after { animation-direction: reverse; }
-    @keyframes chart-drift {
-      from { background-position-y: calc(42% - 32px); }
-      to { background-position-y: calc(42% + 32px); }
-    }
+@media screen and (min-width: 68rem) and (prefers-reduced-motion: no-preference) {
+  .home::before { animation: celestial-drift 13s ease-in-out infinite alternate; }
+  .home::after { animation: celestial-drift 17s ease-in-out -8s infinite alternate-reverse; }
+  @keyframes celestial-drift {
+    from { transform: translateY(-16px); }
+    to { transform: translateY(16px); }
   }
 }
 
